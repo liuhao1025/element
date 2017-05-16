@@ -9,6 +9,7 @@
       </div>
       <alpha-slider v-if="showAlpha" ref="alpha" :color="color"></alpha-slider>
       <div class="el-color-dropdown__btns">
+        <input type="text" class="el-color-dropdown__value" v-model="currentColor">
         <span class="el-color-dropdown__value">{{ currentColor }}</span>
         <a href="JavaScript:" class="el-color-dropdown__link-btn" @click="$emit('clear')">{{ t('el.colorpicker.clear') }}</a>
         <button class="el-color-dropdown__btn" @click="confirmValue">{{ t('el.colorpicker.confirm') }}</button>
@@ -34,7 +35,6 @@
       HueSlider,
       AlphaSlider
     },
-
     props: {
       color: {
         required: true
@@ -43,9 +43,14 @@
     },
 
     computed: {
-      currentColor() {
-        const parent = this.$parent;
-        return !parent.value && !parent.showPanelColor ? '' : parent.color.value;
+      currentColor: {
+        get() {
+          const parent = this.$parent;
+          return !parent.value && !parent.showPanelColor ? '' : parent.color.value;
+        },
+        set(val) {
+          this.color.fromString(val);
+        }
       }
     },
 

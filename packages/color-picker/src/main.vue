@@ -62,6 +62,9 @@
         if (val && val !== this.color.value) {
           this.color.fromString(val);
         }
+        if (!val) {
+          this.clearValue();
+        }
       },
       color: {
         deep: true,
