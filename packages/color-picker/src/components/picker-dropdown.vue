@@ -48,8 +48,8 @@
           return !parent.value && !parent.showPanelColor ? '' : parent.color.value;
         },
         set(val) {
-          if (/#([0-9a-f]{2}){3}/.test(val)) {
-            this.color.fromString(val);
+          if (/^#([0-9a-f]{2}){3}$/i.test(val)) {
+            this.color.fromString(val.toUpperCase());
           }
         }
       }
