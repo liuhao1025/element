@@ -209,12 +209,14 @@
       // liuhao 注册composition相关事件处理中文输入法的问题
       registerEvent() {
         const node = this.$refs.input || this.$refs.textarea;
+        if (!node) return;
         node.addEventListener('change', onCompositionEnd);
         node.addEventListener('compositionstart', onCompositionStart);
         node.addEventListener('compositionend', onCompositionEnd);
       },
       unregisterEvent() {
         const node = this.$refs.input || this.$refs.textarea;
+        if (!node) return;
         node.removeEventListener('change', onCompositionEnd);
         node.removeEventListener('compositionstart', onCompositionStart);
         node.removeEventListener('compositionend', onCompositionEnd);
@@ -230,7 +232,7 @@
       this.registerEvent();
     },
 
-    destroyed() {
+    beforeDestroy() {
       this.unregisterEvent();
     }
   };
