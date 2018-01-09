@@ -78,7 +78,21 @@
   import emitter from 'element-ui/src/mixins/emitter';
   import calcTextareaHeight from './calcTextareaHeight';
   import merge from 'element-ui/src/utils/merge';
+  
+  const onCompositionStart = function onCompositionStart(ev) {
+    ev.target.composing = true;
+  };
 
+  const onCompositionEnd = function onCompositionEnd(ev) {
+    if (!ev.target.composing) return;
+
+    ev.target.composing = false;
+    
+    const inputEvent = document.createEvent('HTMLEvents');
+    inputEvent.initEvent('input', true, true);
+    ev.target.dispatchEvent(inputEvent);
+  };
+  
   export default {
     name: 'ElInput',
 
@@ -170,6 +184,7 @@
         this.$emit('focus', event);
       },
       handleInput(event) {
+        if (event.target.composing) return;
         const value = event.target.value;
         this.$emit('input', value);
         this.setCurrentValue(value);
@@ -190,7 +205,20 @@
         if (this.validateEvent) {
           this.dispatch('ElFormItem', 'el.form.change', [value]);
         }
-      }
+      },
+      // liuhao 注册composition相关事件处理中文输入法的问题
+      registerEvent() {
+        const node = this.$refs.input || this.$refs.textarea;
+        node.addEventListener('change', onCompositionEnd);
+        node.addEventListener('compositionstart', onCompositionStart);
+        node.addEventListener('compositionend', onCompositionEnd);
+      },
+      unregisterEvent() {
+        const node = this.$refs.input || this.$refs.textarea;
+        node.removeEventListener('change', onCompositionEnd);
+        node.removeEventListener('compositionstart', onCompositionStart);
+        node.removeEventListener('compositionend', onCompositionEnd);
+      }      
     },
 
     created() {
@@ -199,6 +227,11 @@
 
     mounted() {
       this.resizeTextarea();
+      this.registerEvent();
+    },
+
+    destroyed() {
+      this.unregisterEvent();
     }
   };
 </script>
