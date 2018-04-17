@@ -59,10 +59,11 @@
 
     watch: {
       value(val) {
-        if (!val) {
-          this.showPanelColor = false;
-        } else if (val && val !== this.color.value) {
+        if (val && val !== this.color.value) {
           this.color.fromString(val);
+        }
+        if (!val) {
+          this.clearValue();
         }
       },
       color: {
@@ -83,8 +84,8 @@
         this.showPicker = false;
       },
       clearValue() {
-        this.$emit('input', null);
-        this.$emit('change', null);
+        this.$emit('input', '');
+        this.$emit('change', '');
         this.showPanelColor = false;
         this.showPicker = false;
         this.resetColor();

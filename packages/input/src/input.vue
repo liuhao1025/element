@@ -60,6 +60,19 @@
   import calcTextareaHeight from './calcTextareaHeight';
   import merge from 'element-ui/src/utils/merge';
 
+  const onCompositionStart = function onCompositionStart(ev) {
+    ev.target.composing = true;
+  };
+  const onCompositionEnd = function onCompositionEnd(ev) {
+    if (!ev.target.composing) return;
+    ev.target.composing = false;
+    
+    // TODO firefox 中，textarea 的 compositionend 事件后会正常的触发 input 事件，导致此处触发了多次 input 事件，暂时在业务逻辑进行 debounce
+    const inputEvent = document.createEvent('HTMLEvents');
+    inputEvent.initEvent('input', true, true);
+    ev.target.dispatchEvent(inputEvent);
+  };
+
   export default {
     name: 'ElInput',
 
@@ -171,13 +184,31 @@
         if (this.validateEvent) {
           this.dispatch('ElFormItem', 'el.form.change', [value]);
         }
+      },
+      // liuhao 注册composition相关事件处理中文输入法的问题
+      registerEvent() {
+        const node = this.$refs.input || this.$refs.textarea;
+        if (!node) return;
+        node.addEventListener('change', onCompositionEnd);
+        node.addEventListener('compositionstart', onCompositionStart);
+        node.addEventListener('compositionend', onCompositionEnd);
+      },
+      unregisterEvent() {
+        const node = this.$refs.input || this.$refs.textarea;
+        if (!node) return;
+        node.removeEventListener('change', onCompositionEnd);
+        node.removeEventListener('compositionstart', onCompositionStart);
+        node.removeEventListener('compositionend', onCompositionEnd);
       }
     },
 
     created() {
       this.$on('inputSelect', this.inputSelect);
+      this.registerEvent();
     },
-
+    beforeDestroy() {
+      this.unregisterEvent();
+    },
     mounted() {
       this.resizeTextarea();
     }
