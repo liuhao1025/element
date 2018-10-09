@@ -19,7 +19,8 @@
         <i class="el-input__icon"
           :class="[
             'el-icon-' + icon,
-            onIconClick ? 'is-clickable' : ''
+            onIconClick ? 'is-clickable' : '',
+            iconPosition ? 'el-input__icon--' + iconPosition : ''
           ]"
           v-if="icon"
           @click="handleIconClick">
@@ -82,6 +83,10 @@
       readonly: Boolean,
       autofocus: Boolean,
       icon: String,
+      iconPosition: {
+        type: String,
+        default: 'right'
+      },
       disabled: Boolean,
       type: {
         type: String,

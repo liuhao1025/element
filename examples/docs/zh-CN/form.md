@@ -269,6 +269,7 @@
     </el-checkbox-group>
   </el-form-item>
   <el-form-item label="特殊资源">
+    <div class="el-form-item__tips">字段对应的提示信息</div>
     <el-radio-group v-model="form.resource">
       <el-radio label="线上品牌商赞助"></el-radio>
       <el-radio label="线下场地免费"></el-radio>
@@ -278,8 +279,8 @@
     <el-input type="textarea" v-model="form.desc"></el-input>
   </el-form-item>
   <el-form-item>
-    <el-button type="primary" @click="onSubmit">立即创建</el-button>
-    <el-button>取消</el-button>
+    <el-button size="large" type="primary" @click="onSubmit">立即创建</el-button>
+    <el-button size="large" type="primary" :plain="true">取消</el-button>
   </el-form-item>
 </el-form>
 <script>
@@ -323,8 +324,9 @@
       <el-option label="区域一" value="shanghai"></el-option>
       <el-option label="区域二" value="beijing"></el-option>
     </el-select>
-  </el-form-item><el-form-item>
-    <el-button type="primary" @click="onSubmit">查询</el-button>
+  </el-form-item>
+  <el-form-item>
+    <el-button type="primary" :plain="true" @click="onSubmit">查询</el-button>
   </el-form-item>
 </el-form>
 <script>
@@ -437,8 +439,8 @@
     <el-input type="textarea" v-model="ruleForm.desc"></el-input>
   </el-form-item>
   <el-form-item>
-    <el-button type="primary" @click="submitForm('ruleForm')">立即创建</el-button>
-    <el-button @click="resetForm('ruleForm')">重置</el-button>
+    <el-button size="large" type="primary" @click="submitForm('ruleForm')">立即创建</el-button>
+    <el-button size="large" type="primary" :plain="true" @click="resetForm('ruleForm')">重置</el-button>
   </el-form-item>
 </el-form>
 <script>
@@ -516,8 +518,8 @@
     <el-input v-model.number="ruleForm2.age"></el-input>
   </el-form-item>
   <el-form-item>
-    <el-button type="primary" @click="submitForm('ruleForm2')">提交</el-button>
-    <el-button @click="resetForm('ruleForm2')">重置</el-button>
+    <el-button size="large" type="primary" @click="submitForm('ruleForm2')">提交</el-button>
+    <el-button size="large" type="primary" :plain="true" @click="resetForm('ruleForm2')">重置</el-button>
   </el-form-item>
 </el-form>
 <script>
@@ -621,12 +623,12 @@
       required: true, message: '域名不能为空', trigger: 'blur'
     }"
   >
-    <el-input v-model="domain.value"></el-input><el-button @click.prevent="removeDomain(domain)">删除</el-button>
+    <el-input v-model="domain.value"></el-input><el-button type="primary" :plain="true" @click.prevent="removeDomain(domain)">删除</el-button>
   </el-form-item>
   <el-form-item>
-    <el-button type="primary" @click="submitForm('dynamicValidateForm')">提交</el-button>
-    <el-button @click="addDomain">新增域名</el-button>
-    <el-button @click="resetForm('dynamicValidateForm')">重置</el-button>
+    <el-button size="large" type="primary" @click="submitForm('dynamicValidateForm')">提交</el-button>
+    <el-button size="large" type="primary" :plain="true" @click="addDomain">新增域名</el-button>
+    <el-button size="large" type="primary" :plain="true" @click="resetForm('dynamicValidateForm')">重置</el-button>
   </el-form-item>
 </el-form>
 <script>
@@ -689,8 +691,8 @@
     <el-input type="age" v-model.number="numberValidateForm.age" auto-complete="off"></el-input>
   </el-form-item>
   <el-form-item>
-    <el-button type="primary" @click="submitForm('numberValidateForm')">提交</el-button>
-    <el-button @click="resetForm('numberValidateForm')">重置</el-button>
+    <el-button size="large" type="primary" @click="submitForm('numberValidateForm')">提交</el-button>
+    <el-button size="large" type="primary" :plain="true" @click="resetForm('numberValidateForm')">重置</el-button>
   </el-form-item>
 </el-form>
 <script>
@@ -716,6 +718,46 @@
       resetForm(formName) {
         this.$refs[formName].resetFields();
       }
+    }
+  }
+</script>
+```
+:::
+### 通用样式
+::: demo 与表单相关的部分通用样式
+```html
+<el-form label-width="100px">
+  <div class="el-form-title">基本信息</div>
+  <el-form-item label="姓名">
+    <el-input placeholder="姓名"></el-input>
+    <div class="el-form-tips">请输入姓名</div>
+  </el-form-item>
+  <el-form-item label="性别">
+    <el-input placeholder="性别"></el-input>
+  </el-form-item>
+  <el-form-item label="标签">
+    <el-button type="primary" :plain="true">选择标签</el-button>
+  </el-form-item>
+  <el-form-item label="头像">
+    <el-button type="primary" :plain="true">上传</el-button>
+    <div class="el-form-tips el-form-tips--inline">( 推荐尺寸 640 * 640 )</div>
+  </el-form-item>
+  <div class="el-form-title">联系方式</div>
+  <el-form-item label="地址">
+    <el-input placeholder="地址"></el-input>
+  </el-form-item>
+  <el-form-item label="手机号码">
+    <el-input placeholder="手机号码"></el-input>
+    <div class="el-form-tips el-form-tips--inline">仅支持十一位数字的手机号码</div>
+  </el-form-item>
+  <el-form-item>
+    <el-button size="large" type="primary">确认</el-button>
+  </el-form-item>
+</el-form>
+<script>
+  export default {
+    data () {
+      return {}
     }
   }
 </script>

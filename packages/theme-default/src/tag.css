@@ -7,7 +7,7 @@
     background-color: var(--tag-fill);
     display: inline-block;
     padding: var(--tag-padding);
-    height: 24px;
+    height: 28px;
     line-height: calc(@height - 2);
     font-size: var(--tag-font-size);
     color: var(--tag-color);
@@ -21,14 +21,15 @@
       text-align: center;
       position: relative;
       cursor: pointer;
-      font-size: 12px;
-      transform: scale(.75, .75);
-      height: 18px;
-      width: 18px;
-      line-height: 18px;
+      font-size: 14px;
+      transform: scale(.5, .5);
+      height: 32px;
+      width: 32px;
+      line-height: 32px;
+      margin: -8px;
       vertical-align: middle;
-      top: -1px;
-      right: -2px;
+      top: -2px;
+      right: -4px;
 
       &:hover {
         background-color: var(--color-white);
@@ -38,7 +39,7 @@
 
     @m gray {
       background-color: var(--tag-gray-fill);
-      border-color: var(--tag-gray-border);
+      /* border-color: var(--tag-gray-border); */
       color: var(--tag-gray-color);
       @when hit {
         border-color: var(--tag-gray-color);
@@ -51,7 +52,7 @@
     }
     @m primary {
       background-color: var(--tag-primary-fill);
-      border-color: var(--tag-primary-border);
+      /* border-color: var(--tag-primary-border); */
       color: var(--tag-primary-color);
       @when hit {
         border-color: var(--tag-primary-color);
@@ -64,7 +65,7 @@
     }
     @m success {
       background-color: var(--tag-success-fill);
-      border-color: var(--tag-success-border);
+      /* border-color: var(--tag-success-border); */
       color: var(--tag-success-color);
       @when hit {
         border-color: var(--tag-success-color);
@@ -77,7 +78,7 @@
     }
     @m warning {
       background-color: var(--tag-warning-fill);
-      border-color: var(--tag-warning-border);
+      /* border-color: var(--tag-warning-border); */
       color: var(--tag-warning-color);
       @when hit {
         border-color: var(--tag-warning-color);
@@ -90,7 +91,7 @@
     }
     @m danger {
       background-color: var(--tag-danger-fill);
-      border-color: var(--tag-danger-border);
+      /* border-color: var(--tag-danger-border); */
       color: var(--tag-danger-color);
       @when hit {
         border-color: var(--tag-danger-color);

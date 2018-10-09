@@ -159,7 +159,7 @@
     mounted() {
       /* istanbul ignore if */
       if (this.width === 0) {
-        this.coreWidth = this.hasText ? 58 : 46;
+        this.coreWidth = this.hasText ? 50 : 46;
       }
       if (this.onColor || this.offColor) {
         this.setBackgroundColor();

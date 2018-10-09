@@ -49,7 +49,7 @@
     @when plain {
       &:hover,
       &:focus {
-        background: var(--color-white);
+        background: var(--button-ghost-fill);
         border-color: var(--color-primary);
         color: var(--color-primary);
       }
@@ -86,9 +86,9 @@
         &,
         &:hover,
         &:focus {
-          background-color: var(--color-white);
+          background-color: var(--button-ghost-fill);
           border-color: var(--color-base-gray);
-          color: var(--color-extra-light-silver);
+          color: var(--border-form-color-base);
         }
       }
     }
@@ -125,13 +125,19 @@
       @mixin button-variant var(--button-info-color), var(--button-info-fill), var(--button-info-border);
     }
     @m large {
-      @mixin button-size var(--button-large-padding-vertical), var(--button-large-padding-horizontal), var(--button-large-font-size), var(--button-border-radius);
+      @mixin button-size var(--button-large-padding-vertical), var(--button-large-padding-horizontal), var(--button-large-font-size), var(--button-border-radius), var(--button-large-min-width);
     }
     @m small {
       @mixin button-size var(--button-small-padding-vertical), var(--button-small-padding-horizontal), var(--button-small-font-size), var(--button-border-radius);
     }
     @m mini {
       @mixin button-size var(--button-mini-padding-vertical), var(--button-mini-padding-horizontal), var(--button-mini-font-size), var(--button-border-radius);
+    }
+    @m icon {
+      @mixin button-size var(--button-icon-padding-vertical), var(--button-icon-padding-horizontal), var(--button-icon-font-size), var(--button-border-radius);
+    }
+    @m secondary {
+      @mixin button-size var(--button-secondary-padding-vertical), var(--button-secondary-padding-horizontal), var(--button-secondary-font-size), var(--button-border-radius), 0, var(--button-secondary-line-height);
     }
     @m text {
       border: none;

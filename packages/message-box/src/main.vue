@@ -3,7 +3,7 @@
     <div class="el-message-box__wrapper" tabindex="-1" v-show="visible" @click.self="handleWrapperClick">
       <div class="el-message-box" :class="customClass">
         <div class="el-message-box__header" v-if="title !== undefined">
-          <div class="el-message-box__title">{{ title }}</div>
+          <div class="el-message-box__title" :class="titleClass">{{ title }}</div>
           <button type="button" class="el-message-box__headerbtn" aria-label="Close" 
                   v-if="showClose" @click="handleAction('cancel')">
             <i class="el-message-box__close el-icon-close"></i>
@@ -28,6 +28,9 @@
         </div>
         <div class="el-message-box__btns">
           <el-button
+            size="large"
+            type="primary"
+            :plain="true"
             :loading="cancelButtonLoading"
             :class="[ cancelButtonClasses ]"
             v-show="showCancelButton"
@@ -35,6 +38,7 @@
             {{ cancelButtonText || t('el.messagebox.cancel') }}
           </el-button>
           <el-button
+            size="large"
             :loading="confirmButtonLoading"
             ref="confirm"
             :class="[ confirmButtonClasses ]"
@@ -94,7 +98,9 @@
       typeClass() {
         return this.type && typeMap[this.type] ? `el-icon-${ typeMap[this.type] }` : '';
       },
-
+      titleClass() {
+        return this.title ? '' : 'el-message-box__title--empty';
+      },
       confirmButtonClasses() {
         return `el-button--primary ${ this.confirmButtonClass }`;
       },

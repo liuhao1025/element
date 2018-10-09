@@ -16,6 +16,7 @@
     opacity: 1;
     display: table;
     transition: opacity .2s;
+    line-height: 16px;
 
     @modifier success {
       background-color: var(--alert-success-color);

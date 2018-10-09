@@ -13,7 +13,9 @@
     max-width: 100%;
     background-color: var(--color-white);
     border: 1px solid var(--table-border-color);
-    font-size: 14px;
+    border-top-left-radius: var(--table-border-radius);
+    border-top-right-radius: var(--table-border-radius);
+    font-size: 12px;
     color: var(--table-text-color);
 
     &::before {
@@ -112,7 +114,7 @@
     }
 
     & th, td {
-      height: 40px;
+      height: 46px;
       min-width: 0;
       box-sizing: border-box;
       text-overflow: ellipsis;
@@ -133,7 +135,7 @@
     }
 
     & th.is-leaf, td {
-      border-bottom: 1px solid var(--table-border-color);
+      border-bottom: 1px solid var(--table-border-light-color);
     }
 
     & th.is-sortable {
@@ -157,6 +159,8 @@
     & th {
       background-color: var(--table-header-background);
       text-align: left;
+      height: 38px;
+      font-size: var(--table-header-font-size);
     }
 
     & th > div {
@@ -238,6 +242,7 @@
         border-top: 1px solid var(--table-border-color);
         background-color: var(--table-footer-background);
         color: var(--table-text-color);
+        font-size: 12px;
       }
     }
 
@@ -275,6 +280,7 @@
       & tbody td {
         background-color: var(--table-footer-background);
         color: var(--table-text-color);
+        font-size: 12px;
       }
     }
 
@@ -303,9 +309,12 @@
       vertical-align: middle;
       width: 100%;
       box-sizing: border-box;
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--table-text-color);
 
       &.highlight {
-        color: var(--color-primary);
+        color: var(--table-text-color);
       }
     }
 
@@ -335,13 +344,13 @@
         top: 9px;
         border-top: none;
         border-right: 5px solid transparent;
-        border-bottom: 5px solid var(--color-light-silver);
+        border-bottom: 5px solid var(--color-text-black);
         border-left: 5px solid transparent;
       }
 
       &.descending {
         bottom: 9px;
-        border-top: 5px solid var(--color-light-silver);
+        border-top: 5px solid var(--color-text-black);
         border-right: 5px solid transparent;
         border-bottom: none;
         border-left: 5px solid transparent;
@@ -349,11 +358,11 @@
     }
 
     & .ascending .sort-caret.ascending {
-      border-bottom-color: var(--color-extra-light-black);
+      border-bottom-color: var(--color-primary);
     }
 
     & .descending .sort-caret.descending {
-      border-top-color: var(--color-extra-light-black);
+      border-top-color: var(--color-primary);
     }
 
     & th.gutter, td.gutter {
@@ -380,8 +389,8 @@
       white-space: normal;
       word-break: break-all;
       line-height: 24px;
-      padding-left: 18px;
-      padding-right: 18px;
+      padding-left: 16px;
+      padding-right: 16px;
     }
 
     & tr input[type="checkbox"] {
@@ -446,7 +455,7 @@
       cursor: pointer;
 
       & i {
-        color: var(--color-light-silver);
+        color: var(--color-text-black);
       }
     }
 

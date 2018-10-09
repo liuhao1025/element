@@ -26,17 +26,18 @@
   &.is-plain {
     background: var(--button-default-fill);
     border: var(--border-base);
-    color: var(--button-default-color);
+    border-color: $background-color;
+    color: $background-color;
 
     &:hover,
     &:focus {
-      background: var(--color-white);
+      background: tint($background-color, 90%);
       border-color: $border-color;
       color: $background-color;
     }
     
     &:active {
-      background: var(--color-white);
+      background: tint($background-color, 90%);
       border-color: shade($border-color, var(--button-active-shade-percent));
       color: shade($background-color, var(--button-active-shade-percent));
       outline: none;
@@ -44,8 +45,10 @@
   }
 }
 
-@define-mixin button-size $padding-vertical, $padding-horizontal, $font-size, $border-radius {
+@define-mixin button-size $padding-vertical, $padding-horizontal, $font-size, $border-radius, $min-width: 0, $line-height: 1 {
   padding: $padding-vertical $padding-horizontal;
   font-size: $font-size;
   border-radius: $border-radius;
+  min-width: $min-width;
+  line-height: $line-height;
 }

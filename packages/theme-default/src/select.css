@@ -30,7 +30,7 @@
 
     & .el-input {
       & .el-input__icon {
-        color: var(--select-input-color);
+        color: var(--select-input-icon-color);
         font-size: var(--select-input-font-size);
         transition: transform .3s;
         transform: translateY(-50%) rotateZ(180deg);
@@ -118,10 +118,20 @@
     }
 
     & .el-tag {
+      display: inline-flex;
+      align-items: center;
+      max-width: 100%;
       height: var(--select-tag-height);
       line-height: var(--select-tag-height);
       box-sizing: border-box;
-      margin: 3px 0 3px 6px;
+      margin: 2px 0 2px 4px;
+      padding-left: 4px;
+      padding-right: 4px;
+      font-size: 12px;
+      & .el-tag__close {
+        top: 0;
+        right: -2px;
+      }
     }
 
     @e tag {
@@ -136,6 +146,13 @@
       & .el-icon-close {
         font-size: var(--select-input-font-size);
       }
+    }
+
+    @e tags-text {
+      flex: 1;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
   }
 }

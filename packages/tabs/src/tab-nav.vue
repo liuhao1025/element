@@ -23,7 +23,11 @@
         type: Function,
         default: noop
       },
-      type: String
+      type: String,
+      offset: {
+        type: Number,
+        default: 75
+      }
     },
 
     data() {

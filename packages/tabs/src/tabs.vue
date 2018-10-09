@@ -14,7 +14,11 @@
       closable: Boolean,
       addable: Boolean,
       value: {},
-      editable: Boolean
+      editable: Boolean,
+      offset: {
+        type: Number,
+        default: 44
+      }
     },
 
     data() {

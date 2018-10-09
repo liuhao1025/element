@@ -107,6 +107,7 @@
 <div class="block">
   <span class="demonstration">默认显示颜色</span>
   <span class="wrapper">
+    <el-button type="primary">主要按钮</el-button>
     <el-button type="success">成功按钮</el-button>
     <el-button type="warning">警告按钮</el-button>
     <el-button type="danger">危险按钮</el-button>
@@ -116,6 +117,7 @@
 <div class="block">
   <span class="demonstration">hover 显示颜色</span>
   <span class="wrapper">
+    <el-button :plain="true" type="primary">主要按钮</el-button>
     <el-button :plain="true" type="success">成功按钮</el-button>
     <el-button :plain="true" type="warning">警告按钮</el-button>
     <el-button :plain="true" type="danger">危险按钮</el-button>
@@ -174,11 +176,13 @@
 
 Button 组件提供除了默认值以外的三种尺寸，可以在不同场景下选择合适的按钮尺寸。
 
-:::demo 额外的尺寸：`large`、`small`、`mini`，通过设置`size`属性来配置它们。
+:::demo 额外的尺寸：`large`、`small`、`mini`、`icon`、`secondary`，通过设置`size`属性来配置它们。后两种为特殊场景中使用的按钮尺寸，可参考设计规范使用。
 
 ```html
 <el-button type="primary" size="large">大型按钮</el-button>
 <el-button type="primary">正常按钮</el-button>
+<el-button type="primary" size="secondary">二级按钮</el-button>
+<el-button type="primary" size="icon"><i class="el-icon-edit el-icon--left"></i>图标按钮</el-button>
 <el-button type="primary" size="small">小型按钮</el-button>
 <el-button type="primary" size="mini">超小按钮</el-button>
 ```
@@ -187,7 +191,7 @@ Button 组件提供除了默认值以外的三种尺寸，可以在不同场景�
 ### Attributes
 | 参数      | 说明    | 类型      | 可选值       | 默认值   |
 |---------- |-------- |---------- |-------------  |-------- |
-| size     | 尺寸   | string  |   large,small,mini            |    —     |
+| size     | 尺寸   | string  |   large,small,mini,icon,secondary            |    —     |
 | type     | 类型   | string    |   primary,success,warning,danger,info,text |     —    |
 | plain     | 是否朴素按钮   | Boolean    | — | false   |
 | loading     | 是否加载中状态   | Boolean    | — | false   |

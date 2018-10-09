@@ -49,6 +49,15 @@
       color: var(--input-icon-color);
       transition: all .3s;
 
+      @m left {
+        right: auto;
+        left: 0;
+        & + .el-input__inner {
+          padding-left: 35px;
+          padding-right: 0;
+        }
+      }
+
       &:after {
         content: '';
         height: 100%;
@@ -131,7 +140,7 @@
       vertical-align: middle;
       display: table-cell;
       position: relative;
-      border: var(--border-base);
+      border: var(--border-width-base) var(--border-style-base) var(--border-form-color-base);;
       border-radius: var(--input-border-radius);
       padding: 0 10px;
       width: 1px;
@@ -141,6 +150,7 @@
       & .el-button {
         display: block;
         margin: -10px;
+        padding: 8px 10px;
       }
 
       & button.el-button,

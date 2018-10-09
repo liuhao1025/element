@@ -235,6 +235,7 @@ export default {
 <el-input
   placeholder="请选择日期"
   icon="search"
+  icon-position="left"
   v-model="input2"
   :on-icon-click="handleIconClick">
 </el-input>
@@ -765,7 +766,8 @@ export default {
 | placeholder   | 输入框占位文本    | string          | — | — |
 | disabled      | 禁用            | boolean         | — | false   |
 | size          | 输入框尺寸，只在 `type!="textarea"` 时有效      | string          | large, small, mini  | — |
-| icon          | 输入框尾部图标    | string          | — | — |
+| icon          | 输入框图标    | string          | — | — |
+| icon-position | 输入框图标位置    | string          | left, right | right |
 | rows          | 输入框行数，只对 `type="textarea"` 有效  |  number | — |  2   |
 | autosize      | 自适应内容高度，只对 `type="textarea"` 有效，可传入对象，如，{ minRows: 2, maxRows: 6 }  |  boolean/object | — |  false   |
 | auto-complete | 原生属性，自动补全 | string | on, off | off |

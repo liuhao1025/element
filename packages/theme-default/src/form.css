@@ -34,10 +34,29 @@
         display: block;
       }
     }
+    .el-input {
+      width: 146px;
+    }
+  }
+  @b form-title {
+    margin: 4px 0 20px;
+    padding: 0 18px;
+    height: 28px;
+    line-height: 28px;
+    font-size: 13px;
+    color: var(--color-base-black);
+    background-color: #f8f8f8;
+    &:first-child {
+      margin-top: 0;
+    }
   }
   @b form-item {
-    margin-bottom: 22px;
+    margin-bottom: 20px;
     @utils-clearfix;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
 
     & .el-form-item {
       margin-bottom: 0;
@@ -47,16 +66,17 @@
       text-align: right;
       vertical-align: middle;
       float: left;
-      font-size: 14px;
+      font-size: 13px;
       color: var(--color-extra-light-black);
       line-height: 1;
-      padding: 11px 12px 11px 0;
+      /* TODO 调整此处边距可能导致多处表单需要调整 label 宽度，暂时不进行处理 */
+      padding: 8.5px 12px 8.5px 0;
       box-sizing: border-box;
     }
     @e content {
-      line-height: 36px;
+      line-height: 30px;
       position: relative;
-      font-size: 14px;
+      font-size: 13px;
       @utils-clearfix;
     }
     @e error {
@@ -88,6 +108,14 @@
           border-color: transparent;
         }
       }
+    }
+  }
+  @b form-tips {
+    font-size: 12px;
+    color: #bbbbbb;
+    @m inline {
+      display: inline;
+      margin: 0 10px;
     }
   }
 }
