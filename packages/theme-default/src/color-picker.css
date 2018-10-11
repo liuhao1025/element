@@ -160,9 +160,19 @@
 
     @descendent value {
       float: left;
-      line-height: 26px;
+      height: 26px;
+      line-height: calc(@height - 2);
+      padding: 0 8px;
+      margin: 0;
+      border: 1px solid #c5c8ca;
       font-size: 12px;
       color: var(--color-base-black);
+      outline: none;
+      box-sizing: border-box;
+      &:read-only,
+      &[readonly] {
+        border: 0;
+      }
     }
 
     @descendent btn {
