@@ -47,7 +47,8 @@
         color: var(--color-white);
       }
       &:active {
-        background-color: darken(var(--color-primary), 0.2);
+        background-color: var(--color-primary);
+        color: var(--color-white);
       }
       &.divider {
         margin-top: 6px;

@@ -34,8 +34,13 @@
         display: block;
       }
     }
-    .el-input {
-      width: 146px;
+    @m search {
+      margin-bottom: 10px;
+      padding: 20px 18px;
+      background-color: tint(#c5c8ca, 85%);
+      & .el-form-item {
+        margin-right: 24px;
+      }
     }
   }
   @b form-title {
@@ -70,11 +75,11 @@
       color: var(--color-extra-light-black);
       line-height: 1;
       /* TODO 调整此处边距可能导致多处表单需要调整 label 宽度，暂时不进行处理 */
-      padding: 8.5px 12px 8.5px 0;
+      padding: 7.5px 12px 7.5px 0;
       box-sizing: border-box;
     }
     @e content {
-      line-height: 30px;
+      line-height: 28px;
       position: relative;
       font-size: 13px;
       @utils-clearfix;

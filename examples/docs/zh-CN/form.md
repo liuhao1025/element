@@ -754,6 +754,27 @@
     <el-button size="large" type="primary">确认</el-button>
   </el-form-item>
 </el-form>
+
+<el-form style="margin: 20px 0 0; width: auto;" class="el-form--search" label-width="72px" label-suffix=":" :inline="true">
+  <el-form-item label="创建时间">
+    <el-date-picker type="daterange"></el-date-picker>
+  </el-form-item>
+  <el-form-item label="订单类型">
+    <el-input placeholder="订单类型"></el-input>
+  </el-form-item>
+  <el-form-item label="订单筛选">
+    <el-select style="margin-right: 10px;" value="1">
+      <el-option label="选项一" value="1"></el-option>
+      <el-option label="选项二" value="2"></el-option>
+      <el-option label="选项三" value="3"></el-option>
+    </el-select>
+    <el-input placeholder="请输入关键字" :maxlength="100"></el-input>
+  </el-form-item>
+  <div style="margin-left: 72px;">
+    <el-button type="primary">筛选</el-button>
+    <el-button type="primary" :plain="true">重置</el-button>
+  </div>
+</el-form>
 <script>
   export default {
     data () {

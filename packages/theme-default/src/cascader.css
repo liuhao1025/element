@@ -13,6 +13,11 @@
       cursor: pointer;
     }
 
+    .el-input {
+      vertical-align: top;
+      width: 100%;
+    }
+
     .el-input__icon {
       transition: none;
     }
@@ -34,7 +39,7 @@
       left: 0;
       top: 0;
       height: 100%;
-      line-height: 36px;
+      line-height: 28px;
       padding: 0 25px 0 10px;
       color: var(--input-color);
       width: 100%;
@@ -43,7 +48,7 @@
       overflow: hidden;
       box-sizing: border-box;
       cursor: pointer;
-      font-size: 14px;
+      font-size: 13px;
       text-align: left;
       span {
         color: var(--color-light-silver);

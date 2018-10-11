@@ -6,7 +6,7 @@
     position: relative;
     font-size: var(--font-size-base);
     display: inline-block;
-    width: 100%;
+    width: var(--input-width-default);
 
     @e inner {
       appearance: none;
@@ -23,6 +23,7 @@
       outline: none;
       padding: 3px 10px;
       transition: var(--border-transition-base);
+      vertical-align: top;
       width: 100%;
 
       &::placeholder {

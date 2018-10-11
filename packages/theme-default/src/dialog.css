@@ -41,6 +41,8 @@
     }
 
     @e header {
+      display: flex;
+      align-items: center;
       padding: 0 14px;
       height: var(--dialog-header-height);
       line-height: var(--dialog-header-height);
@@ -72,9 +74,13 @@
     }
 
     @e title {
+      flex: 1;
       line-height: 1;
       font-size: var(--dialog-title-font-size);
       color: var(--color-base-black);
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
     }
 
     @e body {

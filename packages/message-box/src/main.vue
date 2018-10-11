@@ -29,6 +29,15 @@
         <div class="el-message-box__btns">
           <el-button
             size="large"
+            :loading="confirmButtonLoading"
+            ref="confirm"
+            :class="[ confirmButtonClasses ]"
+            v-show="showConfirmButton"
+            @click.native="handleAction('confirm')">
+            {{ confirmButtonText || t('el.messagebox.confirm') }}
+          </el-button>
+          <el-button
+            size="large"
             type="primary"
             :plain="true"
             :loading="cancelButtonLoading"
@@ -36,15 +45,6 @@
             v-show="showCancelButton"
             @click.native="handleAction('cancel')">
             {{ cancelButtonText || t('el.messagebox.cancel') }}
-          </el-button>
-          <el-button
-            size="large"
-            :loading="confirmButtonLoading"
-            ref="confirm"
-            :class="[ confirmButtonClasses ]"
-            v-show="showConfirmButton"
-            @click.native="handleAction('confirm')">
-            {{ confirmButtonText || t('el.messagebox.confirm') }}
           </el-button>
         </div>
       </div>

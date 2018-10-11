@@ -63,7 +63,7 @@
       border: 1px solid var(--pagination-border-color);
       cursor: pointer;
       margin: 0;
-      /* color: var(--pagination-button-color); */
+      color: var(--pagination-button-color);
 
       .el-icon {
         display: block;
@@ -171,7 +171,7 @@
       font-size: var(--pagination-font-size);
       min-width: var(--pagination-button-size);
       height: var(--pagination-button-size);
-      line-height: var(--pagination-button-size);
+      line-height: calc(@height - 2);
       cursor: pointer;
       box-sizing: border-box;
       text-align: center;
